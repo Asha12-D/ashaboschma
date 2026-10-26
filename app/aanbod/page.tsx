@@ -6,10 +6,7 @@ export const metadata: Metadata = { title: 'Aanbod' };
 export default function AanbodPage() {
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <h1 className="text-3xl font-bold text-primair mb-4">Mijn aanbod</h1>
-      <p className="text-tekst/80 mb-12">
-        [Korte introductie op jouw aanbod]
-      </p>
+      <h1 className="text-3xl font-bold text-primair mb-12">Mijn aanbod</h1>
       <div className="grid gap-8 sm:grid-cols-2">
         <Link href="/aanbod/de-idealen-koers"
           className="group bg-wit rounded-2xl overflow-hidden shadow-sm border border-primair/10 hover:shadow-md transition-shadow">

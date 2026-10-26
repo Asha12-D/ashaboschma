@@ -7,10 +7,10 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ashaboschma.nl'),
   title: {
-    default: 'Asha Boschma · [Jouw tagline]',
+    default: 'Asha Boschma',
     template: '%s · Asha Boschma',
   },
-  description: '[Korte beschrijving van wat je doet en voor wie]',
+  description: 'Sparren over jouw ambitie nu je moeder bent? Mail Asha Boschma op info@ashaboschma.nl.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
