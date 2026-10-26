@@ -1,31 +1,36 @@
 @import "tailwindcss";
 
+/* ─── Kopjes-lettertype: Larken (variabel, alle gewichten) ─── */
+@font-face {
+  font-family: 'Larken';
+  src: url('/fonts/Larken/Larken%20Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Larken';
+  src: url('/fonts/Larken/Larken%20Variable%20Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ══════════════════════════════════════════════════════════════
    STAP 1 — Jouw huisstijlkleuren
    Vervang de waarden hieronder door jouw eigen hex-codes.
    ══════════════════════════════════════════════════════════════ */
 
 @theme {
-  --color-primair:      #3b5633;   /* ← jouw hoofdkleur     */
-  --color-achtergrond:  #f8f5f0;   /* ← achtergrondkleur    */
-  --color-tekst:        #1a1a1a;   /* ← tekstkleur          */
-  --color-accent:       #d56119;   /* ← accentkleur         */
-  --color-wit:          #ffffff;
-
-  /* ── STAP 2 — Jouw lettertype ────────────────────────────── */
-  /* Optie A: Google Font
-     1. Ga naar fonts.google.com, zoek jouw font, kies "Get font" → "Get embed code"
-     2. Kopieer de @import-regel en plak hem hierboven
-     3. Pas de naam hieronder aan:
-  --font-hoofd: 'Lato', sans-serif;
-
-     Optie B: Eigen font (.otf / .ttf / .woff2)
-     1. Kopieer jouw fontbestand naar /public/fonts/
-     2. Voeg onderaan dit bestand een @font-face toe
-     3. Pas de naam hieronder aan:
-  --font-hoofd: 'JouwFont', serif;
-  */
+  --color-primair:     #b26135;
+  --color-achtergrond: #faf8ef;
+  --color-tekst:       #414141;
+  --color-accent:      #E4FF1A;
+  --color-mosterd:     #E0A526;
+  --color-wit:         #ffffff;
+  --color-secundair-kleur:  #99a890;
   --font-hoofd: Inter, system-ui, sans-serif;
+  --font-koppen: 'Larken', Georgia, 'Times New Roman', serif;
 }
 
 /* ─── Basisstijlen ─────────────────────────────────────────── */
@@ -46,6 +51,10 @@ body {
   line-height: 1.75;
 }
 
+h1 {
+  font-family: var(--font-koppen);
+}
+
 /* ─── Scroll-animaties ──────────────────────────────────────
    Voeg className="reveal" toe aan een element om het te laten
    infaden zodra het in beeld scrollt.
@@ -55,7 +64,8 @@ body {
   transform: translateY(28px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
-.reveal.revealed {
+.reveal.revealed,
+details .reveal {
   opacity: 1;
   transform: translateY(0);
 }
@@ -96,6 +106,19 @@ body {
   }
 }
 
+/* ─── Parallax-banner: blijft staan terwijl de pagina eroverheen scrolt ─── */
+.parallax-banner {
+  height: 55vh;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) {
+  .parallax-banner { height: 40vh; background-attachment: scroll; }
+}
+
 /* ─── Hero-knop (speels) ────────────────────────────────────── */
 @keyframes speels {
   0%, 100% { transform: rotate(0deg) scale(1); }
@@ -107,11 +130,11 @@ body {
 }
 .hero-btn {
   display: inline-block;
-  align-self: flex-start;
-  margin-top: 2rem;
   padding: 0.9rem 2.1rem;
+  min-width: 11rem;
+  text-align: center;
   background: var(--color-accent);
-  color: white;
+  color: var(--color-tekst);
   font-family: var(--font-hoofd);
   font-size: 1.05rem;
   font-weight: 600;
@@ -120,6 +143,20 @@ body {
   animation: speels 3s ease-in-out 1.5s infinite;
 }
 .hero-btn:hover { opacity: 0.85; }
+.hero-btn-outline {
+  display: inline-block;
+  padding: 0.9rem 2.1rem;
+  min-width: 11rem;
+  text-align: center;
+  border: 2px solid white;
+  color: white;
+  font-family: var(--font-hoofd);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.hero-btn-outline:hover { background: rgba(255,255,255,0.12); }
 
 /* ─── Twee-kolom layout ─────────────────────────────────────
    Gebruik: <div className="two-col"> of <div className="two-col flip">

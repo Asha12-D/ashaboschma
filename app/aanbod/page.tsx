@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = { title: 'Aanbod' };
 
@@ -10,18 +11,19 @@ export default function AanbodPage() {
         [Korte introductie op jouw aanbod]
       </p>
       <div className="grid gap-8 sm:grid-cols-2">
-        {/* Product/dienst 1 */}
-        <div className="bg-wit rounded-2xl p-8 shadow-sm border border-primair/10">
-          <h2 className="text-xl font-bold text-primair mb-2">[Product of dienst 1]</h2>
-          <p className="text-tekst/70 leading-relaxed mb-4">[Beschrijving]</p>
-          <a href="#" className="font-bold text-accent hover:underline">Meer info →</a>
-        </div>
-        {/* Product/dienst 2 */}
-        <div className="bg-wit rounded-2xl p-8 shadow-sm border border-primair/10">
-          <h2 className="text-xl font-bold text-primair mb-2">[Product of dienst 2]</h2>
-          <p className="text-tekst/70 leading-relaxed mb-4">[Beschrijving]</p>
-          <a href="#" className="font-bold text-accent hover:underline">Meer info →</a>
-        </div>
+        <Link href="/aanbod/de-idealen-koers"
+          className="group bg-wit rounded-2xl overflow-hidden shadow-sm border border-primair/10 hover:shadow-md transition-shadow">
+          <img src="/fotos/web/og-idealen-koers.jpg" alt="De Idealen Koers"
+            className="w-full aspect-[1200/630] object-cover" />
+          <div className="p-8">
+            <h2 className="font-koppen text-2xl font-bold text-primair mb-2">De Idealen Koers</h2>
+            <p className="text-tekst/70 leading-relaxed mb-4">
+              Een 6-wekenprogramma in Deventer voor vrouwen die moeder zijn en verlangen naar
+              keuzevrijheid, rust, energie en richting.
+            </p>
+            <span className="font-bold text-primair group-hover:underline">Meer info →</span>
+          </div>
+        </Link>
       </div>
     </section>
   );

@@ -5,9 +5,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ashaboschma.nl'),
   title: {
-    default: '[Jouw naam] · [Jouw tagline]',
-    template: '%s · [Jouw naam]',
+    default: 'Asha Boschma · [Jouw tagline]',
+    template: '%s · Asha Boschma',
   },
   description: '[Korte beschrijving van wat je doet en voor wie]',
 };
